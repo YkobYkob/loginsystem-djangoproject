@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign In</title>
+  </head>
+  <body>
+    <h3>Sign In</h3>
+
+    <form action="{% url 'signin' %}" method="post">
+      {% csrf_token %}
+      <label for="username">Username: </label>
+      <input
+        type="text"
+        id="username"
+        name="username"
+        placeholder="Enter your Username"
+        required
+      />
+
+      <label for="password1">Password: </label>
+      <input
+        type="password"
+        id="password1"
+        name="password1"
+        placeholder="Enter Your Password"
+        required
+      />
+
+      <button type="submit">Log In</button>
+    </form>
+
+    <!-- Script for printing message -->
+    <script>
+      let message = "{{message}}";
+      if (message.length > 1) {
+        alert(message);
+      }
+    </script>
+    
+  </body>
+</html>

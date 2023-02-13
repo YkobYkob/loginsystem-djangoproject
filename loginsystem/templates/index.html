@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home Page</title>
+  </head>
+  <body>
+    <!-- If logged in -->
+    {% if user.is_authenticated %}
+    <h1>Hello "{{username}}"</h1>
+    <br />
+    <button><a href="{% url 'signout' %}">Sign Out</a></button>
+    <!-- If not logged in -->
+    {%else%}
+    <h3>
+      Welcome to this little project I have made with Django, where you can
+      create a user, sign in and sign out
+    </h3>
+    <br />
+    <button><a href="{% url 'signup' %}">Sign up</a></button>
+    <button><a href="{% url 'signin' %}">Sign In</a></button>
+    {%endif%}
+
+    <!-- Script for printing message -->
+    <script>
+      let message = "{{message}}";
+      if (message.length > 1) {
+        alert(message);
+      }
+    </script>
+  </body>
+</html>
